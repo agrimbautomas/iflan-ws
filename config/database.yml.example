@@ -1,0 +1,16 @@
+default: &default
+  adapter: mysql2
+  timeout: 5000
+  encoding: utf8
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'sinclair' } %>
+  host: <%= ENV.fetch('MYSQL_HOST') { 'iflan_db' } %>
+
+development:
+  <<: *default
+  database: iflan_dev
+
+test:
+  <<: *default
+  database: iflan_test
