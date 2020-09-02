@@ -33,6 +33,9 @@ gem 'config'
 # Auto schema in models, url: https://github.com/ctran/annotate_models
 gem 'annotate'
 
+# Better rails console, url: https://github.com/goodpeople/debbie
+gem 'debbie', :group => :development
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -57,6 +60,9 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'webmock'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
