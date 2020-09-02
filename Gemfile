@@ -54,11 +54,16 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'rspec-mocks'
 	gem "rubycritic", :require => false
+	gem 'sandi_meter' # Static analysis tool for checking Ruby code for Sandi Metz' rules.
 	gem 'simplecov'
 	gem "factory_bot_rails"
 	gem 'rails-controller-testing'
 	gem "rails_best_practices"
 	gem 'rspectre'
+
+	gem 'rubocop-rspec', require: false
+	gem 'rubocop', require: false
+	gem 'rubocop-performance'
 end
 
 group :development do
