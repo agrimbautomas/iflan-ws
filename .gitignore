@@ -421,3 +421,10 @@ test_uploads/
 # Google APIs
 config/settings/client_secret.json
 config/settings/development.yml
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
