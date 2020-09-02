@@ -1,0 +1,15 @@
+// For active admin
+$main-font: 'Chivo', sans-serif ;
+
+$amalgama-blue: #49a4ff;
+$amalgama-yellow: #EDE94C;
+
+$am-theme-primary: $amalgama-blue;
+$am-theme-accent: $amalgama-yellow;
+$am-theme-accent-fallback: #ff7547;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap');
+
+@import "active_admin/mixins";
+@import "active_material";

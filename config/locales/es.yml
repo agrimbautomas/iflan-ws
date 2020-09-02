@@ -1,107 +1,15 @@
 es:
   activerecord:
     models:
-      position_seniority_cost:
-        one: Costo por puesto
-        other: Costos por puesto
-        update_by_base: Actualizar costos por puesto/seniority
-        all_costs_updated: Los costos de todos los puestos fueron actualizados
-      position:
-        one: Puesto de trabajo
-        other: Puestos de trabajo
-      opened_position:
-        one: Puesto Abierto
-        other: Puestos Abiertos
-      seniority:
-        one: Seniority
-        other: Seniorities
-      product:
-        one: Producto
-        other: Productos
-      category:
-        one: Categoria de Producto
-        other: Categorias de Productos
-      postulant:
-        one: Postulante
-        other: Postulantes
-      buyer:
-        one: Comprador
-        other: Compradores
       user:
         one: Usuario
         other: Usuarios
         active: Activos
         inactive: Inactivos
-      provider:
-        one: Proveedor
-        other: Proveedores
-      rewards:
-        one: Reconocimiento
-        other: Reconocimientos
-        sender_success_message: 'Ya registramos tu reconocimiento, gracias! :raised_hands:'
-        receiver_success_message: 'Felicitaciones %{receiver}! @%{sender} te acaba de reconocer en #%{reward_type} :%{reward_type}:
-        "%{message}" ===> Entrá a https://team.amalgama.co/ y mira todos tus reconocimientos.'
-        commitment: Compromiso
-        creativity: Creatividad
-        quality: Calidad
-        sent_by: Enviado por
-        for: Para
-        message: Mensaje
-      awards:
-        one: Award
-        other: Awards
-      cell:
-        one: Célula
-        other: Células
-      freelancer:
-        one: Freelancer
-        other: Freelancers
-      agency:
-        one: Agencia
-        other: Agencias
-      skill:
-        one: Know-how
-        other: Know-how
-      log:
-        one: Log
-        other: Logs
-      provider_skill:
-        one: Skill del proveedor
-        other: Skills del proveedor
       admin_user:
         one: Administrador
         other: Administradores
-      marvel:
     attributes:
-      product:
-        title: Título
-        name: Nombre
-        price: Precio
-        image: Imagen
-      order:
-        buyer: Comprador
-        product: Producto
-        payment: A Cobrar
-        code: Código
-        detail: Detalle
-      buyer:
-        name: Nombre
-        phone: Teléfono
-        address: Dirección
-      marvel:
-        name: Nombre
-        price: Precio de 100cm x 100cm
-        updated_at: Última vez actualizado
-      admin_user:
-        current_sign_in_at: Última vez conectado
-        sign_in_count: Cantidad de veces conectado
-      seniority:
-        name: Nombre
-        order: Prioridad
-        increment_percentage: Porcentaje incremental
-        min_average: Tiempo mínimo promedio
-        max_average: Tiempo máximo promedio
-        people_per_position: 'Personas Por Posición'
       user:
         first_name: Nombre
         last_name: Apellido
@@ -125,32 +33,6 @@ es:
         personal_information: Datos Personales
         file_number: Nro legajo
         cell: Célula
-      postulant:
-        name: Nombre
-        email_content: Contenido del contacto
-        birthday: Fecha de nacimiento
-        first_contacted: Contactado
-        cv_file: CV Adjunto
-        available: Disponible
-        unavailable: No disponible
-        score: Calificación
-        salary: Sueldo
-        working_hours: Carga horaria
-        monthly_hours: Horas mensuales
-        created_at: Fecha de creación
-        updated_at: Fecha de actualización
-      provider:
-        name: Nombre
-        price_per_hour: Precio por hora
-        available: Disponible
-        score: Calificación
-        contact: Contacto
-        contact_phone: Teléfono del contacto
-        type: Tipo de proveedor
-        created_at: Fecha de creación
-      provider_skill:
-        skill: Skill
-        score: Calificación
     errors:
       models:
         position_seniority_cost:
@@ -365,26 +247,3 @@ es:
       default: "%d/%m/%Y"
       short: "%d/%m"
       long: "%d/%m/%Y"
-
-
-  team: Equipo
-  members: Miembros
-  config: Config
-  reward_errors:
-    invalid_username: 'El nombre de usuario ingresado no es válido'
-    invalid_email: 'El email ingresado no es válido'
-    invalid_reward_type: 'El tipo de reconocimiento es inválido. Recorda que son #creatividad, #compromiso y #calidad'
-    invalid_team: 'El equipo que estas buscando no existe'
-    invalid_sender: 'El usuario emisor no es valido'
-    invalid_receiver: 'El usuario receptor no es valido'
-    invalid_user: 'El usuario receptor no es valido'
-    invalid_channel: 'El canal de Mattermost no es valido'
-    username_not_found: 'El nombre de usuario no fue encontrado en Mattermost'
-    empty_message: 'El mensaje no puede quedar vacio'
-  mattermost:
-    birthday: "**Feliz cumple @%{username}**! :agite: :agite: :agite: \nEl equipo de Amalgama te desea un gran dia en tu cumpleaños :birthday: \n%{gif}"
-    rewards_reminder: "**Hola @%{username}**! :beer: CERVEZA GRATIS!!! :beer: Ahora que tenemos tu atención... \n Te recordamos que tenes la posibilidad de reconocer con un /reward a aquellos que hicieron una acción destacable según nuestros valores ->
-      #compromiso :commitment:, #calidad :quality: o #creatividad :creativity:. No hay \"acciones mínimas\" ni límite para enviar rewards, cualquier acción que creas que se alinea a nuestros valores puede ser reconocida."
-    sundwich_weekly_reminder: "**Mensaje de la Python** :python: \n Sundwichitos es tracking time! https://docs.google.com/spreadsheets/d/1pF4y4739qevNO5ewoKjAV8v_QEv9LeFb_dAQHCsff1c <--- Archivo de horas"
-  giphy:
-    invalid_query: "La query no es valida"
