@@ -18,13 +18,40 @@ before_script:
    - mkdir -p reports/
    - bundle install --jobs 4 --deployment
 
+stages:
+   - test
+   - production_deploy
+
 test:
    script:
-      - bundle exec rake db:drop db:create db:migrate
-      - bundle exec rake app:reports
+      - bundle exec rails db:drop db:create db:migrate
+      - bundle exec rails app:reports
    tags:
       - docker
    coverage: '/\(\d+.\d+\%\) covered/'
    artifacts:
       paths:
          - reports/
+
+Production_deploy:
+   stage: production_deploy
+   before_script:
+      - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+      - eval $(ssh-agent -s)
+      - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+      - mkdir -p ~/.ssh
+      - chmod 700 ~/.ssh
+      - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - chmod 644 ~/.ssh/known_hosts
+   script:
+      - bundle install --jobs 4 --deployment
+      - bundle exec cap production deploy
+   tags:
+      - docker
+   only:
+      - master
+   cache:
+      key: ${CI_COMMIT_REF_SLUG}
+      untracked: true
+      paths:
+         - vendor/bundle/
