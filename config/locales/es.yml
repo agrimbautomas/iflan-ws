@@ -34,6 +34,8 @@ es:
         file_number: Nro legajo
         cell: Célula
       tmp_hum_log:
+        humidity: Humedad
+        temperature: Temperatura
         created_at: Fecha y hora
     errors:
       models:
