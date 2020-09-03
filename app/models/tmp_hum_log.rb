@@ -9,4 +9,8 @@
 #  updated_at  :datetime         not null
 #
 class TmpHumLog < ApplicationRecord
+
+	validates :temperature, allow_blank: true, numericality: {only_float: true, less_than_or_equal_to: 100}
+	validates :humidity, allow_blank: true, numericality: {only_float: true, less_than_or_equal_to: 100}
+
 end
