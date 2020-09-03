@@ -20,7 +20,7 @@ before_script:
 
 stages:
    - test
-   - production_deploy
+   - development_deploy
 
 test:
    script:
@@ -34,8 +34,8 @@ test:
       paths:
          - reports/
 
-Production_deploy:
-   stage: production_deploy
+Development_deploy:
+   stage: development_deploy
    before_script:
       - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
       - eval $(ssh-agent -s)
@@ -46,7 +46,7 @@ Production_deploy:
       - chmod 644 ~/.ssh/known_hosts
    script:
       - bundle install --jobs 4 --deployment
-      - bundle exec cap production deploy
+      - bundle exec cap development deploy
    tags:
       - docker
    only:
