@@ -1,0 +1,2 @@
+class TmpHumLog < ApplicationRecord
+end

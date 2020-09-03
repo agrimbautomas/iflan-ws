@@ -1,6 +1,6 @@
-role :app, %w{deploy@iflan.house}
-role :web, %w{deploy@iflan.house}
-role :db, %w{deploy@iflan.house}
+role :app, %w{deploy@api.iflan.house}
+role :web, %w{deploy@api.iflan.house}
+role :db, %w{deploy@api.iflan.house}
 
 set :deploy_to, '/srv/rails/iflan-ws'
 
