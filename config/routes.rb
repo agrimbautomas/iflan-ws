@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  use_doorkeeper
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: 'admin/users#index'
+  get '/admin', to: 'admin/users#index', as: '/admin'
+
 end
