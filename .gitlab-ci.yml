@@ -25,7 +25,8 @@ stages:
 test:
    script:
       - bundle exec rails db:drop db:create db:migrate
-      - bundle exec rails app:reports
+      - bundle exec rake iflan:coverage
+      - bundle exec rake iflan:codereview
    tags:
       - docker
    coverage: '/\(\d+.\d+\%\) covered/'
