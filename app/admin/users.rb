@@ -20,4 +20,12 @@ ActiveAdmin.register User do
     f.actions
   end
 
+
+  show do |user|
+    attributes_table_for user do
+      row :email
+      row :sign_in_count
+    end
+	end
+
 end
