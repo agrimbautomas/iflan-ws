@@ -91,7 +91,7 @@ RSpec.shared_examples 'archives the model without execute' do
 
 		context 'when the model was already archived' do
 			let!(:model) { create factory, :archived }
-			include_examples 'interactor raises PaperChefError exception'
+			include_examples 'interactor raises IflanError exception'
 		end
 
 		context 'without model id' do
@@ -166,8 +166,8 @@ RSpec.shared_examples 'interactor raises RecordInvalid exception' do
 	include_examples 'interactor raises exception', ActiveRecord::RecordInvalid
 end
 
-RSpec.shared_examples 'interactor raises PaperChefError exception' do
-	include_examples 'interactor raises exception', PaperChefError
+RSpec.shared_examples 'interactor raises IflanError exception' do
+	include_examples 'interactor raises exception', IflanError
 end
 
 RSpec.shared_examples 'interactor raises RuntimeError exception' do

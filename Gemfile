@@ -56,8 +56,6 @@ gem 'activeadmin'
 gem 'active_material', github: 'vigetlabs/active_material'
 gem 'listen', '~> 3.2'
 
-# Cors for external host, url: https://github.com/cyu/rack-cors
-gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
 	# Call 'byebug' anywhere in the code to stop execution and get a debugger console

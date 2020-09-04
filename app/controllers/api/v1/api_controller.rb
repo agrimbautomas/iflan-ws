@@ -34,7 +34,7 @@ class Api::V1::ApiController < ApplicationController
 	end
 
 	def user_not_authorized
-		render_paper_chef_error(PaperChefForbiddenError.new)
+		render_paper_chef_error(IflanForbiddenError.new)
 	end
 
 	def render_collection(collection, options = {})

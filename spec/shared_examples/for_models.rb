@@ -3,9 +3,9 @@ RSpec.shared_examples 'model raises RecordInvalid exception' do
 	include_examples 'raises exception', ActiveRecord::RecordInvalid
 end
 
-RSpec.shared_examples 'model raises PaperChefError exception' do
+RSpec.shared_examples 'model raises IflanError exception' do
 	let(:exception_raiser) { model }
-	include_examples 'raises exception', PaperChefError
+	include_examples 'raises exception', IflanError
 end
 
 RSpec.shared_examples 'model raises RuntimeError exception' do
