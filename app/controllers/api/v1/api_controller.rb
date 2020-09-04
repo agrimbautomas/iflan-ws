@@ -6,7 +6,7 @@ class Api::V1::ApiController < ApplicationController
 	#before_action :doorkeeper_authorize!
 	#skip_before_action :verify_authenticity_token
 
-	rescue_from ::IflanfError, with: :render_paper_chef_error
+	rescue_from ::IflanError, with: :render_paper_chef_error
 	rescue_from ::ActiveRecord::RecordInvalid, with: :render_invalid_record
 	rescue_from ::ActiveRecord::RecordNotFound, with: :render_record_not_found
 	rescue_from ::ArgumentError, with: :render_argument_error
@@ -17,21 +17,10 @@ class Api::V1::ApiController < ApplicationController
 		@user ||= User.find doorkeeper_token.resource_owner_id rescue nil if doorkeeper_token
 	end
 
-	def current_company_id
-		current_company.id
-	end
-
-	def current_company
-		current_user.company
-	end
-
 	def is_paginated?
 		page.present? and per_page.present?
 	end
 
-	def company_id
-		params[:company_id]
-	end
 
 	def page
 		params[:page]
@@ -40,19 +29,6 @@ class Api::V1::ApiController < ApplicationController
 	def per_page
 		params[:per_page]
 	end
-
-	def tag_id
-		params[:tag_id]
-	end
-
-	def lot_quantity
-		params[:lot_quantity]
-	end
-
-	def size
-		params[:size]
-	end
-
 	def search_params
 		params&.permit!.to_h.except(:page, :per_page, :controller, :action).deep_symbolize_keys
 	end
@@ -95,10 +71,6 @@ class Api::V1::ApiController < ApplicationController
 
 	def render_successful_html_response(html)
 		render plain: html, content_type: 'text/html; charset=utf-8'
-	end
-
-	def validate_company_id
-		raise PaperChefError.new 'invalid_company_id', "The company param must be 'me'" if company_id != 'me'
 	end
 
 	def render_deprecated_endpoint
