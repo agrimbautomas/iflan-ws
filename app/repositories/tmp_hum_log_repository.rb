@@ -1,0 +1,3 @@
+class TmpHumLogRepository < BaseRepository
+
+end

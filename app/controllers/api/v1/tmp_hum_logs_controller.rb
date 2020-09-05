@@ -10,7 +10,7 @@ class Api::V1::TmpHumLogsController < Api::V1::ApiController
 
 	private
 	def create_tmp_hum_log
-		CreateUser.for company: current_company, params: tmp_hum_log_attributes
+		CreateTmpHumLog.for params: tmp_hum_log_attributes
 	end
 
 	def tmp_hum_log_attributes
@@ -18,7 +18,7 @@ class Api::V1::TmpHumLogsController < Api::V1::ApiController
 	end
 
 	def tmp_hum_logs
-		GetUsers.for company: current_company
+		GetTmpHumLogs.default
 	end
 
 
