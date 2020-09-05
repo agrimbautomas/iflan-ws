@@ -1,5 +1,5 @@
 RSpec.shared_examples "expect json content type" do |status|
-	it { expect(response.content_type).to eq "application/json" }
+	it { expect(response.content_type).to eq "application/json; charset=utf-8" }
 	it { expect(response.status).to eq status }
 end
 
