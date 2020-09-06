@@ -39,7 +39,7 @@ gem 'config'
 gem 'annotate'
 
 # Better rails console, url: https://github.com/goodpeople/debbie
-gem 'debbie', :group => :development
+# gem 'debbie', :group => :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -75,6 +75,9 @@ group :development, :test do
 	gem 'rubocop-rspec', require: false
 	gem 'rubocop', require: false
 	gem 'rubocop-performance'
+
+	gem 'pry'
+	gem 'pry-rails'
 end
 
 group :development do

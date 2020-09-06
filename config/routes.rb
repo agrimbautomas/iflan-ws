@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 		scope '1', module: 'v1' do
 
       resources :tmp_hum_logs
+      resources :noise_logs
 
 		end
 	end

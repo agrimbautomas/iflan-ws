@@ -1,0 +1,3 @@
+class NoiseLogRepository < BaseRepository
+
+end

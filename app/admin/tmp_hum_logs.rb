@@ -1,4 +1,6 @@
 ActiveAdmin.register TmpHumLog do
+  menu priority: 10
+
   permit_params :humidity, :temperature
 
   index do
