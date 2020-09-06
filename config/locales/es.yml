@@ -9,6 +9,9 @@ es:
       tmp_hum_log:
         one: Registro de Tmp Hum
         other: Registros de Tmp Hum
+      noise_log:
+        one: Registro de Sonido
+        other: Registros de Sonido
     attributes:
       user:
         first_name: Nombre
@@ -36,6 +39,9 @@ es:
       tmp_hum_log:
         humidity: Humedad
         temperature: Temperatura
+        created_at: Fecha y hora
+      noise_log:
+        device_id: Dispositivo
         created_at: Fecha y hora
     errors:
       models:
@@ -248,6 +254,6 @@ es:
       words_connector: ", "
   time:
     formats:
-      default: "%H:%M - %d/%m"
+      default: "%H:%M:%S - %d/%m"
       short: "%d/%m"
-      long: "%H:%M - %d/%m"
+      long: "%H:%M:%S - %d/%m"

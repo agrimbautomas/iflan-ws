@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 	devise_for :users, ActiveAdmin::Devise.config
 	ActiveAdmin.routes(self)
 
-	root to: 'admin/users#index'
-	get '/admin', to: 'admin/users#index', as: '/admin'
+	root to: 'admin/noise_logs#index'
+	get '/admin', to: 'admin/noise_logs#index', as: '/admin'
 
 	scope module: 'api' do
 		scope '1', module: 'v1' do
