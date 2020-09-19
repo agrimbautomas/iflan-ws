@@ -7,28 +7,30 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module Iflan
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
-    config.time_zone = 'America/Argentina/Buenos_Aires'
-    config.i18n.default_locale = :es
+	class Application < Rails::Application
+		# Initialize configuration defaults for originally generated Rails version.
+		config.load_defaults 6.0
+		config.time_zone = 'America/Argentina/Buenos_Aires'
+		config.i18n.default_locale = :es
 
-    # config.autoload_paths += Dir[Rails.root.join("app", "apis", "{*/}")]
-    # config.autoload_paths += Dir[Rails.root.join("app", "app_factories", "{*/}")]
-    config.autoload_paths += Dir[Rails.root.join("app", "interactors", "{*/}")]
-    config.autoload_paths += Dir[Rails.root.join("app", "models", "{*/}")]
-    config.autoload_paths += Dir[Rails.root.join("app", "policies", "{*/}")]
-    config.autoload_paths += Dir[Rails.root.join("app", "queries", "{*/}")]
-    config.autoload_paths += Dir[Rails.root.join("app", "repositories", "{*/}")]
-    config.autoload_paths += Dir[Rails.root.join("app", "serializers", "{*/}")]
-    config.autoload_paths += Dir[Rails.root.join("app", "services", "{*/}")]
+		# config.autoload_paths += Dir[Rails.root.join("app", "apis", "{*/}")]
+		# config.autoload_paths += Dir[Rails.root.join("app", "app_factories", "{*/}")]
+		config.autoload_paths += Dir[Rails.root.join("app", "interactors", "{*/}")]
+		config.autoload_paths += Dir[Rails.root.join("app", "models", "{*/}")]
+		config.autoload_paths += Dir[Rails.root.join("app", "policies", "{*/}")]
+		config.autoload_paths += Dir[Rails.root.join("app", "queries", "{*/}")]
+		config.autoload_paths += Dir[Rails.root.join("app", "repositories", "{*/}")]
+		config.autoload_paths += Dir[Rails.root.join("app", "serializers", "{*/}")]
+		config.autoload_paths += Dir[Rails.root.join("app", "services", "{*/}")]
 
 
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins Rails.application.secrets.allowed_origins
-    #     resource '*', headers: :any, methods: [:get, :post, :options, :put, :patch, :delete]
-    #   end
-    # end
-  end
+		config.middleware.insert_before 0, Rack::Cors do
+			allow do
+				origins '*'
+				resource '*',
+						headers: :any,
+						methods: [:get, :post, :options, :put, :patch, :delete]
+			end
+		end
+	end
 end
