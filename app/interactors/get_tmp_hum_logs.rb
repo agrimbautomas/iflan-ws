@@ -12,7 +12,7 @@ class GetTmpHumLogs < BaseInteractor
 
 	private
 	def get_tmp_hum_logs
-		TmpHumLog.all.limit(100)
+		TmpHumLog.all.limit(10)
 	end
 
 end
