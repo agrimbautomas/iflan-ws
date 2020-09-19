@@ -12,7 +12,7 @@ class GetTmpHumLogs < BaseInteractor
 
 	private
 	def get_tmp_hum_logs
-		TmpHumLog.all.limit(10)
+		TmpHumLog.all.limit(10).order('created_at desc')
 	end
 
 end
