@@ -1,13 +1,17 @@
 ActiveAdmin.register TmpHumLog do
-  menu priority: 10
+  menu priority: 5
 
   permit_params :humidity, :temperature
 
   index do
     selectable_column
     column :created_at
-    column :humidity
-    column :temperature
+    column :humidity do |tmphum|
+      tmphum.humidity.to_s + "%"
+		end
+    column :temperature  do |tmphum|
+      tmphum.temperature.to_s + "°"
+    end
     actions
   end
 
@@ -26,8 +30,12 @@ ActiveAdmin.register TmpHumLog do
 
   show do |tmphumlog|
     attributes_table_for tmphumlog do
-      row :humidity
-      row :temperature
+      row :humidity do
+        tmphumlog.humidity.to_s + "%"
+			end
+      row :temperature do
+        tmphumlog.temperature.to_s + "°"
+			end
       row :created_at
     end
   end

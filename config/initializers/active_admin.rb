@@ -117,7 +117,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'noise_logs#index'
+  config.root_to = 'tmp_hum_logs#index'
 
   # == Admin Comments
   #
