@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 	scope module: 'api' do
 		scope '1', module: 'v1' do
 
+			get 'stats', to: 'stats#index'
+
       resources :tmp_hum_logs
       resources :noise_logs
 
