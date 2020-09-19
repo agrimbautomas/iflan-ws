@@ -9,6 +9,7 @@ RSpec.shared_examples "expect tmp_hum_log correct response" do
 	it {
 		expect(response.body).to eq({
 				response: {
+						id: tmp_hum_log.id,
 						temperature: tmp_hum_log.temperature,
 						humidity: tmp_hum_log.humidity,
 						created_at: tmp_hum_log.created_at,
