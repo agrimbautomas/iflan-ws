@@ -1,3 +1,3 @@
 class TmpHumLogSerializer < ActiveModel::Serializer
-	attributes :temperature, :humidity, :created_at
+	attributes :id, :temperature, :humidity, :created_at
 end
