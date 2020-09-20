@@ -12,7 +12,7 @@ class Api::V1::TmpHumLogsController < Api::V1::ApiController
 	def create_tmp_hum_log
 		CreateTmpHumLog.for params: tmp_hum_log_attributes
 		Pusher.trigger('stats-channel', 'stats-changed', {
-				stats: GetStats.serialized
+				response: GetStats.serialized
 		})
 	end
 
