@@ -37,7 +37,7 @@ class GetStats < BaseInteractor
 	def serialize_noise last_noise_log
 		{
 				last: last_noise_log,
-				avg_per_day: 9.3
+				avg_per_day: GetNoiseLogAvg.last_week
 		}
 	end
 
