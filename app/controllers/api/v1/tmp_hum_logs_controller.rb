@@ -9,11 +9,13 @@ class Api::V1::TmpHumLogsController < Api::V1::ApiController
 	end
 
 	private
+
 	def create_tmp_hum_log
-		CreateTmpHumLog.for params: tmp_hum_log_attributes
+		tmphum = CreateTmpHumLog.for params: tmp_hum_log_attributes
 		Pusher.trigger('stats-channel', 'stats-changed', {
 				response: GetStats.serialized
-		})
+		}) unless Rails.env.test?
+		tmphum
 	end
 
 	def tmp_hum_log_attributes
