@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  use_doorkeeper
 	use_doorkeeper
 	devise_for :users, ActiveAdmin::Devise.config
 	ActiveAdmin.routes(self)
@@ -13,6 +14,10 @@ Rails.application.routes.draw do
 
       resources :tmp_hum_logs
       resources :noise_logs
+
+			devise_for :users, controllers: {
+				registrations: 'api/v1/users/registrations',
+			}, skip: [:sessions, :password]
 
 		end
 	end
