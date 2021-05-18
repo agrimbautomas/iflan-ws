@@ -428,6 +428,3 @@ config/settings/development.yml
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-
-# Autosync db
-update-db.sh
