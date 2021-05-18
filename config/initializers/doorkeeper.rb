@@ -20,6 +20,7 @@ Doorkeeper.configure do
   end
 
   grant_flows %w(password)
+  access_token_expires_in nil
 
 end
 

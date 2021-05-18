@@ -9,3 +9,14 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :keep_releases, 2
 set :rvm_ruby_version, '2.7.1'
 set :puma_init_active_record, true
+
+namespace :puma do
+  Rake::Task[:restart].clear_actions
+
+  desc 'Force puma restart'
+  task :restart do
+    invoke 'puma:stop'
+    invoke 'puma:start'
+  end
+
+end
