@@ -19,5 +19,7 @@ Doorkeeper.configure do
     end
   end
 
+  grant_flows %w(password)
 
 end
+
