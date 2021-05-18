@@ -1,31 +1,27 @@
-class LogInUser < BaseInteractor
-	def self.with(email:, password:)
-		new(email: email, password: password, user_repository: UserRepository.new).execute
-	end
+class LogInUser < Interactor
+  validates :email, :password, presence: true
 
-	def initialize(email:, password:, user_repository:)
-		raise_invalid_user_repository unless user_repository
-		@email = email
-		@password = password
-		@user_repository = user_repository
-	end
+  def self.with(email:, password:)
+    log_in_user = new(email: email, password: password)
+    log_in_user.execute
+  end
 
-	def execute
-		validate_email
-		log_in_user
-		user
-	end
+  def execute
+    @user = User.find_for_database_authentication(:email => email.downcase)
+    validate_app_user
+    log_in
+  end
 
-	private
-	def log_in_user
-		invalid :password, 'Invalid password' unless user.valid_password? @password
-	end
+  private
 
-	def user
-		@user ||= @user_repository.find_by email: @email, deleted_at: nil
-	end
+  def validate_app_user
+    forbidden :user, "The user doesn't exist" unless @user.present?
+  end
 
-	def validate_email
-		invalid :email, 'Invalid email' unless user.present?
-	end
+  def log_in
+    if @user && @user.valid_for_authentication? { @user.valid_password? password }
+      @user
+    end
+  end
+
 end
