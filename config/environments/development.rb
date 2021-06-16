@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.hosts << "api.iflan.house"
+  config.hosts << "iflan.api.lazlo.boutique"
 
   # Settings specified here will take precedence over those in config/application.rb.
 
